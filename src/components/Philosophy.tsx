@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Zap, Layers, Eye, ShieldCheck, Scale, MousePointerClick, Cpu, Terminal } from "lucide-react";
+import AnimatedText from "./AnimatedText";
 
 const PHILOSOPHIES = [
   {
@@ -73,13 +74,23 @@ export default function Philosophy() {
         >
           <div className="flex items-center gap-4 mb-6">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
-              How I Think About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Engineering.</span>
+              <AnimatedText text="My approach to" delay={0.2} />{" "}
+              <AnimatedText 
+                text="Software." 
+                delay={0.6} 
+                animateBy="word" 
+                itemClassName="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400"
+              />
             </h2>
             <div className="h-px bg-gradient-to-r from-white/20 to-transparent w-32 hidden md:block" />
           </div>
-          <p className="text-white/50 text-xl font-light max-w-2xl">
-            I don't just write code to pass tests; I engineer product experiences. My approach bridges the gap between complex systems architecture and fluid human interaction.
-          </p>
+          <div className="text-white/50 text-xl font-light max-w-2xl">
+            <AnimatedText 
+              text="I focus on building clean, efficient, and user-friendly applications. I enjoy solving technical challenges and constantly learning new ways to improve my engineering skills." 
+              delay={1.2}
+              stagger={0.01}
+            />
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">

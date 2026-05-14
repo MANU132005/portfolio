@@ -1,16 +1,19 @@
+import dynamic from 'next/dynamic';
 import Hero from "@/components/Hero";
-import Philosophy from "@/components/Philosophy";
-import Metrics from "@/components/Metrics";
-import Projects from "@/components/Projects";
-import Insights from "@/components/Insights";
-import CurrentlyBuilding from "@/components/CurrentlyBuilding";
-import CloudAI from "@/components/CloudAI";
-import Skills from "@/components/Skills";
-import Leadership from "@/components/Leadership";
-import Experience from "@/components/Experience";
-import Github from "@/components/Github";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
+
+// Lazy load non-critical sections for faster initial paint and lower bundle size
+const Philosophy = dynamic(() => import("@/components/Philosophy"), { ssr: true });
+const Metrics = dynamic(() => import("@/components/Metrics"), { ssr: true });
+const Projects = dynamic(() => import("@/components/Projects"), { ssr: true });
+const Insights = dynamic(() => import("@/components/Insights"), { ssr: true });
+const CurrentlyBuilding = dynamic(() => import("@/components/CurrentlyBuilding"), { ssr: true });
+const CloudAI = dynamic(() => import("@/components/CloudAI"), { ssr: true });
+const Skills = dynamic(() => import("@/components/Skills"), { ssr: true });
+const Leadership = dynamic(() => import("@/components/Leadership"), { ssr: true });
+const Experience = dynamic(() => import("@/components/Experience"), { ssr: true });
+const Github = dynamic(() => import("@/components/Github"), { ssr: true });
+const About = dynamic(() => import("@/components/About"), { ssr: true });
+const Contact = dynamic(() => import("@/components/Contact"), { ssr: true });
 
 export default function Home() {
   return (

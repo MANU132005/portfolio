@@ -6,7 +6,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackgroundSystem from "@/components/BackgroundSystem";
 import { CommandPalette } from "@/components/CommandPalette";
-import CursorGlow from "@/components/CursorGlow";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +32,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#050505] text-white selection:bg-blue-500/30`}
       >
-        <CursorGlow />
         <CommandPalette />
         <BackgroundSystem />
         <SmoothScroll>

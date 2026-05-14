@@ -4,7 +4,8 @@ import { useState } from "react";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
+import { Github, Linkedin } from "./BrandIcons";
 
 const NAV_LINKS = [
   { name: "Home", href: "#home" },
@@ -54,13 +55,13 @@ export default function Navbar() {
           maxWidth: scrolled ? "1000px" : "1200px",
           padding: scrolled ? "8px 16px" : "12px 24px",
           backgroundColor: scrolled || mobileMenuOpen ? "rgba(3, 3, 5, 0.85)" : "transparent",
-          backdropFilter: scrolled || mobileMenuOpen ? "blur(40px)" : "blur(0px)",
+          backdropFilter: scrolled || mobileMenuOpen ? "blur(12px)" : "blur(0px)",
           border: scrolled || mobileMenuOpen ? "1px solid rgba(255,255,255,0.1)" : "1px solid transparent",
           boxShadow: scrolled || mobileMenuOpen ? "0 25px 50px -12px rgba(0,0,0,0.5)" : "none",
           borderRadius: mobileMenuOpen ? "24px" : "9999px"
         }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="pointer-events-auto flex flex-col items-stretch relative"
+        className="pointer-events-auto flex flex-col items-stretch relative will-change-transform"
       >
         <div className="flex items-center justify-between w-full">
           <Link 
@@ -96,12 +97,37 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            <div className="hidden sm:flex items-center gap-4 px-4 py-2 border-r border-white/5 mr-2">
+              <a 
+                href="https://github.com/MANU132005" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/40 hover:text-white transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+              >
+                <Github size={16} />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/manu-rikkumalla-289133290/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/40 hover:text-white transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+              >
+                <Linkedin size={16} />
+              </a>
+              <a 
+                href="mailto:manurikkumalla13@gmail.com" 
+                className="text-white/40 hover:text-white transition-all duration-300 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+              >
+                <Mail size={16} />
+              </a>
+            </div>
+
             <Link
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
               className={cn(
-                "hidden sm:flex px-4 py-2 md:px-6 md:py-2.5 text-[10px] font-mono uppercase tracking-[0.2em] rounded-full transition-all duration-500",
+                "px-4 py-2 md:px-6 md:py-2.5 text-[10px] font-mono uppercase tracking-[0.2em] rounded-full transition-all duration-500 shrink-0",
                 "bg-white text-black hover:bg-gray-200 shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]"
               )}
             >

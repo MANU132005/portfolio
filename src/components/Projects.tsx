@@ -2,94 +2,82 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, FileCode2, Database, Zap, Shield, ChevronRight, LayoutTemplate, Activity, Server, ArrowRight, GitMerge, Blocks, Cpu } from "lucide-react";
+import { ChevronRight, Blocks } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+import Image from "next/image";
 
 const PROJECTS = [
   {
     id: "01",
-    title: "SignConnect",
-    description: "A flagship AI-powered accessibility ecosystem bridging the communication gap for the hearing impaired. Built with a high-performance computer vision pipeline for real-time sign language translation.",
-    tech: ["Python", "TensorFlow", "React", "Azure Cloud", "OpenCV"],
-    metrics: [
-      { label: "Accuracy", value: "98.2%", icon: <Zap className="w-4 h-4 text-yellow-400" /> },
-      { label: "Latency", value: "32ms", icon: <Activity className="w-4 h-4 text-blue-400" /> },
-      { label: "Impact", value: "Accessibility", icon: <Shield className="w-4 h-4 text-emerald-400" /> }
-    ],
-    color: "from-blue-600/20 to-indigo-600/20",
-    borderGlow: "group-hover:shadow-[0_0_50px_-12px_rgba(59,130,246,0.5)]",
+    title: "Viaagoo",
+    timeline: "2–3 weeks",
+    description: "An intelligent travel-planning platform designed to simplify complex trip logistics through personalized itineraries and budget-based recommendations.",
+    tech: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    role: "Frontend Developer",
+    image: "/viaagoo.png",
+    color: "from-blue-600/20 to-cyan-600/20",
+    borderGlow: "group-hover:shadow-[0_0_50px_-12px_rgba(6,182,212,0.5)]",
     deepDive: [
-      { title: "The Problem", content: "Communication barriers for sign language users in everyday service scenarios remain a massive accessibility gap. Existing tools often require expensive hardware or suffer from high latency." },
-      { title: "Why It Matters", content: "SignConnect democratizes accessibility by transforming any device with a camera into a real-time translator, empowering users in retail, healthcare, and daily interactions." },
-      { title: "Architecture", content: "Engineered a hybrid inference model. Landmark extraction occurs on the edge via TensorFlow.js, while complex gesture sequence prediction is handled by a cloud-hosted LSTM model." },
-      { title: "AI Integration", content: "Utilized MediaPipe for high-fidelity hand tracking and trained a custom LSTM neural network on over 50,000 frames of dynamic sign language data for fluid translation." },
-      { title: "Technical Challenge", content: "Optimizing the model for mobile browser environments while maintaining high accuracy in varying lighting conditions and backgrounds." },
-      { title: "Deployment", content: "Deployed as a scalable cloud-native application on Azure, utilizing Edge Functions for global low-latency delivery of the frontend and ML weights." },
-      { title: "Scalability", content: "Designed a stateless architecture that allows the inference engine to scale horizontally, supporting thousands of concurrent real-time translation streams." },
-      { title: "Engineering Tradeoffs", content: "Traded off model depth for inference speed. A slightly simpler model architecture allowed us to hit the 30fps target required for natural communication." },
-      { title: "Lessons Learned", content: "The most powerful AI is useless if the UI doesn't respect the user's focus. Minimalist design was critical to prevent cognitive overload during translation." },
-      { title: "Future Roadmap", content: "Implementing bidirectional communication with a real-time 3D avatar that translates speech back into sign language." }
+      { title: "Project Goal", content: "Built as a practice in frontend engineering, Viaagoo unifies trip planning into a single interactive flow, focusing on clean travel UX and mobile-first responsiveness." },
+      { title: "Core Features", content: "Personalized trip generation based on group size, budget preference, and destination types with interactive itinerary simulation." },
+      { title: "Technical Challenge", content: "Maintaining complex state across a multi-step travel form while ensuring a lightweight and snappy user experience without heavy frameworks." },
+      { title: "Learning Outcome", content: "Gained deep proficiency in JavaScript DOM manipulation, event handling, and structured CSS layout patterns." },
+      { title: "Future Roadmap", content: "Integration with live travel APIs for real-time flight data and AI-driven predictive packing lists." }
     ]
   },
   {
     id: "02",
-    title: "TaxPal",
-    description: "An intelligent SaaS financial engine designed to automate complex tax calculations for independent contractors. Focused on precision, security, and intuitive data visualization.",
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind"],
-    metrics: [
-      { label: "Precision", value: "100%", icon: <Zap className="w-4 h-4 text-yellow-400" /> },
-      { label: "Security", value: "AES-256", icon: <Database className="w-4 h-4 text-blue-400" /> },
-      { label: "Efficiency", value: "SaaS", icon: <Server className="w-4 h-4 text-emerald-400" /> }
-    ],
-    color: "from-emerald-600/20 to-teal-600/20",
-    borderGlow: "group-hover:shadow-[0_0_50px_-12px_rgba(16,185,129,0.5)]",
+    title: "AutiCure",
+    timeline: "1–2 months",
+    description: "A socially-driven therapeutic ecosystem for individuals with Autism, utilizing immersive digital environments to support life-skill development and emotional regulation.",
+    tech: ["HTML", "CSS", "JavaScript", "Unity", "Unreal Engine", "AutoCAD"],
+    role: "UI/UX Developer & Prototyper",
+    image: "/auticure.png",
+    color: "from-purple-600/20 to-indigo-600/20",
+    borderGlow: "group-hover:shadow-[0_0_50px_-12px_rgba(139,92,246,0.5)]",
     deepDive: [
-      { title: "Problem Solved", content: "Independent contractors often struggle with fragmented financial data and complex tax brackets. TaxPal consolidates this into a single, automated engine." },
-      { title: "Architecture Decisions", content: "Chose a server-side calculation engine using Next.js Server Actions to ensure sensitive financial formulas remain secure and never reach the client side." },
-      { title: "Technical Challenges", content: "Handling floating-point precision issues in JavaScript. Solved by processing all currency calculations as integers (cents) throughout the entire pipeline." },
-      { title: "Database Logic", content: "Utilized a strictly normalized PostgreSQL schema to handle multi-currency transactions and dynamic tax law updates across different regions." },
-      { title: "Scalability", content: "Database designed with horizontal scaling in mind, supporting multi-tenant organizational structures for growing businesses." },
-      { title: "Lessons Learned", content: "When building financial software, edge cases are the norm. Comprehensive unit testing for every tax formula was the most critical part of the build." }
+      { title: "The Mission", content: "Collaborated with Tapas School and Autism Ashram to build a platform that uses familiar digital environments to teach life skills in a safe, repeatable way." },
+      { title: "Design System", content: "Engineered an accessibility-first UI with a calming color palette, high-contrast options, and predictable interaction patterns to prevent sensory overload." },
+      { title: "Collaboration", content: "Worked closely with educators at NIEPID to validate adaptive learning modules that adjust based on the user's progress and comfort level." },
+      { title: "Technical Focus", content: "Explored the intersection of web interfaces and 3D simulations (Unity/Unreal) to create immersive 'home-environment' life skill practice sessions." },
+      { title: "Future Scaling", content: "Planning to implement VR-ready modules and deeper emotional engagement tools using computer vision for sentiment tracking." }
     ]
   },
   {
     id: "03",
-    title: "AUTI-CURE",
-    description: "A specialized digital platform built for autism care and community support. Designed with strict accessibility standards and a calming, distraction-free environment.",
-    tech: ["React", "Node.js", "Express", "MongoDB", "A11y"],
-    metrics: [
-      { label: "A11y Score", value: "100", icon: <Zap className="w-4 h-4 text-yellow-400" /> },
-      { label: "Latency", value: "45ms", icon: <Database className="w-4 h-4 text-blue-400" /> },
-      { label: "Impact", value: "Social", icon: <Shield className="w-4 h-4 text-emerald-400" /> }
-    ],
-    color: "from-purple-600/20 to-pink-600/20",
-    borderGlow: "group-hover:shadow-[0_0_50px_-12px_rgba(168,85,247,0.5)]",
+    title: "Drowsiness Detector",
+    timeline: "1–2 weeks",
+    description: "A safety-focused automotive interface concept designed to monitor driver fatigue and provide real-time road safety alerts.",
+    tech: ["HTML", "CSS", "JavaScript", "UI Simulation"],
+    role: "Lead Frontend Developer",
+    image: "/drowsiness.png",
+    color: "from-red-600/20 to-orange-600/20",
+    borderGlow: "group-hover:shadow-[0_0_50px_-12px_rgba(239,68,68,0.5)]",
     deepDive: [
-      { title: "The Problem", content: "Digital resources for autism care often suffer from cluttered interfaces that cause sensory overload. There was a lack of a centralized, safe digital space." },
-      { title: "Product Vision", content: "To create a 'calm tech' environment that prioritizes user well-being over engagement metrics, focusing on accessibility and clarity." },
-      { title: "AI Integration", content: "Implemented NLP-based sentiment analysis on community boards to automatically flag and moderate distressing or toxic content in real-time." },
-      { title: "Technical Challenges", content: "Maintaining a high-performance real-time community forum while adhering to strict AAA accessibility standards for screen readers and keyboard navigation." },
-      { title: "Lessons Learned", content: "Designing for neurodiversity makes the product better for everyone. Clarity and predictability are the most important UI principles." }
+      { title: "Core Concept", content: "Inspired by real-world AI monitoring systems, this project simulates a vehicle telemetry dashboard that tracks blink rates and provides tiered safety warnings." },
+      { title: "Alert System", content: "Engineered a responsive notification pipeline that delivers visual, auditory, and text alerts based on simulated driver fatigue levels." },
+      { title: "UI Philosophy", content: "Focused on high-readability night-mode aesthetics, ensuring critical safety information is prominent without distracting the driver." },
+      { title: "Challenge", content: "Simulating complex hardware-interfaced telemetry data solely through frontend logic while maintaining a believable user experience." },
+      { title: "Learning", content: "Learned the nuances of time-based state management and event-driven alerting systems in high-stakes UI contexts." }
     ]
   },
   {
     id: "04",
-    title: "Viaagoo",
-    description: "A modern intelligent travel assistant designed to optimize trip planning and navigation through personalized AI-driven recommendations.",
-    tech: ["Next.js", "Go", "Redis", "Azure Maps API", "AI Model"],
-    metrics: [
-      { label: "Speed", value: "Realtime", icon: <Zap className="w-4 h-4 text-yellow-400" /> },
-      { label: "Accuracy", value: "92%", icon: <Activity className="w-4 h-4 text-blue-400" /> },
-      { label: "System", value: "Distributed", icon: <Server className="w-4 h-4 text-emerald-400" /> }
-    ],
-    color: "from-orange-600/20 to-red-600/20",
-    borderGlow: "group-hover:shadow-[0_0_50px_-12px_rgba(249,115,22,0.5)]",
+    title: "TaxPal",
+    timeline: "4–6 weeks",
+    description: "A premium fintech and personal finance platform for freelancers, focusing on tax estimation, budget tracking, and financial analytics.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "API Integration"],
+    role: "Lead Frontend Developer",
+    image: "/taxpal.png",
+    color: "from-emerald-600/20 to-teal-600/20",
+    borderGlow: "group-hover:shadow-[0_0_50px_-12px_rgba(16,185,129,0.5)]",
     deepDive: [
-      { title: "Problem Solved", content: "Fragmented travel planning across multiple apps often leads to decision fatigue. Viaagoo unifies the experience with a single intelligent assistant." },
-      { title: "Architecture", content: "Built a high-performance Go-based backend for real-time route optimization, utilizing Redis for ultra-fast caching of location-based data." },
-      { title: "AI Integration", content: "Leveraged an LLM-based engine to process natural language travel preferences and generate personalized itineraries in seconds." },
-      { title: "Cloud Thinking", content: "Utilized Azure Maps API for global geographic data and deployed the service across multiple regions to ensure low-latency access for travelers." },
-      { title: "Technical Challenge", content: "Optimizing the routing algorithm to handle complex multi-stop trips while considering real-time traffic and transit data." }
+      { title: "Contribution", content: "Architected the dashboard UI and integrated core APIs for dynamic data visualization, ensuring a seamless flow between raw data and financial insights." },
+      { title: "Complexity", content: "Developed a unified event calendar and tax reminder system that pulls real-time data to provide freelancers with a clear financial roadmap." },
+      { title: "Architecture", content: "Utilized Next.js for its robust performance and TypeScript for type-safe financial calculations throughout the platform." },
+      { title: "Major Challenge", content: "Visualizing quarterly tax estimations and fluctuating income streams without overwhelming the user with raw spreadsheets." },
+      { title: "Lessons Learned", content: "The critical importance of data precision and clear visual hierarchy in fintech products." }
     ]
   }
 ];
@@ -105,20 +93,20 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-20"
+          className="mb-24"
         >
           <div className="flex items-center gap-4 mb-6">
             <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent w-16" />
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
-              Engineering <span className="text-white/30">Case Studies</span>
+              Project <span className="text-white/30">Showcase</span>
             </h2>
           </div>
           <p className="text-white/50 max-w-2xl text-xl font-light">
-            Deep architectural dives into complex product engineering. Moving beyond UI to explore scalability, performance, and system design.
+            A collection of meaningful engineering projects built through curiosity, learning, and practical problem solving.
           </p>
         </motion.div>
 
-        <div className="space-y-16">
+        <div className="space-y-20">
           {PROJECTS.map((project, index) => (
             <motion.div
               key={project.id}
@@ -126,153 +114,89 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className={cn("group relative rounded-[2.5rem] bg-[#0a0a0e] border border-white/5 overflow-hidden transition-all duration-700", project.borderGlow)}
+              className={cn("group relative rounded-[3rem] bg-[#0a0a0e] border border-white/5 overflow-hidden transition-all duration-700", project.borderGlow)}
             >
               <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none" />
               
-              <div className="flex flex-col lg:flex-row border-b border-white/5">
-                {/* Visual Architecture Side */}
-                <div className="w-full lg:w-5/12 p-8 lg:p-12 relative overflow-hidden flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-white/5 bg-[#050508]/50">
-                  <div className={cn("absolute inset-0 bg-gradient-to-br opacity-20 transition-opacity duration-1000 group-hover:opacity-40", project.color)} />
-                  <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.05] mix-blend-overlay" />
+              <div className="flex flex-col lg:flex-row">
+                {/* Visual Side */}
+                <div className="w-full lg:w-1/2 relative aspect-video lg:aspect-auto overflow-hidden border-b lg:border-b-0 lg:border-r border-white/5">
+                  <div className={cn("absolute inset-0 bg-gradient-to-br opacity-40 mix-blend-overlay z-10", project.color)} />
+                  <Image 
+                    src={project.image} 
+                    alt={project.title} 
+                    fill 
+                    className="object-cover grayscale-[0.5] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                    quality={85}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0e] via-transparent to-transparent z-10" />
                   
-                  <div className="relative z-10 mb-12">
-                     <div className="flex items-center justify-between mb-4">
-                      <div className="text-white/40 font-mono text-sm tracking-widest uppercase">System {project.id}</div>
-                      <button className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
-                        <FileCode2 className="w-4 h-4 text-white/70" />
-                      </button>
-                    </div>
-                    <h3 className="text-3xl lg:text-4xl font-bold text-white tracking-tighter mb-4">{project.title}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <span key={tech} className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/5 text-white/70 border border-white/5 backdrop-blur-md">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Architecture Diagram Visualization */}
-                  <div className="relative z-10 w-full aspect-video rounded-2xl border border-white/10 bg-[#020203]/80 backdrop-blur-xl p-6 flex flex-col justify-between shadow-2xl">
-                    <div className="text-[10px] text-white/40 font-mono tracking-widest uppercase mb-4">
-                      {project.id === "01" ? "AI Inference Pipeline" : "System Architecture"}
-                    </div>
-                    
-                    <div className="flex-1 flex items-center justify-between relative px-4">
-                      {/* Connection Lines */}
-                      <div className="absolute top-1/2 left-0 w-full h-px bg-white/10 -translate-y-1/2 z-0" />
-                      <motion.div 
-                        animate={{ x: ["-100%", "100%"] }}
-                        transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-                        className="absolute top-1/2 left-0 w-1/3 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent -translate-y-1/2 z-0" 
-                      />
-                      
-                      {project.id === "01" ? (
-                        <>
-                          {/* AI Pipeline Flow: Camera -> AI Node -> UI */}
-                          <div className="relative z-10 flex flex-col items-center gap-2">
-                             <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/20 flex items-center justify-center backdrop-blur-md">
-                               <LayoutTemplate className="w-5 h-5 text-white/50" />
-                             </div>
-                             <span className="text-[8px] font-mono text-white/30">Camera</span>
-                          </div>
-                          
-                          <div className="relative z-10 flex flex-col items-center gap-2">
-                             <motion.div 
-                               animate={{ scale: [1, 1.1, 1] }}
-                               transition={{ repeat: Infinity, duration: 2 }}
-                               className="w-14 h-14 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.2)]"
-                             >
-                               <Cpu className="w-6 h-6 text-blue-400" />
-                             </motion.div>
-                             <span className="text-[8px] font-mono text-blue-400/50 uppercase tracking-tighter">TF.js / LSTM</span>
-                          </div>
-
-                          <div className="relative z-10 flex flex-col items-center gap-2">
-                             <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/20 flex items-center justify-center backdrop-blur-md">
-                               <Blocks className="w-5 h-5 text-white/50" />
-                             </div>
-                             <span className="text-[8px] font-mono text-white/30">Output</span>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <div className="relative z-10 w-12 h-12 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center backdrop-blur-md">
-                            <LayoutTemplate className="w-5 h-5 text-white/70" />
-                          </div>
-                          <div className="relative z-10 w-16 h-16 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center backdrop-blur-md shadow-[0_0_30px_rgba(59,130,246,0.2)]">
-                            <Server className="w-6 h-6 text-blue-400" />
-                          </div>
-                          <div className="relative z-10 w-12 h-12 rounded-xl bg-white/5 border border-white/20 flex items-center justify-center backdrop-blur-md">
-                            <Database className="w-5 h-5 text-white/70" />
-                          </div>
-                        </>
-                      )}
+                  <div className="absolute top-8 left-8 z-20">
+                    <div className="px-4 py-2 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-[10px] font-mono text-white/50 uppercase tracking-widest">
+                      {project.timeline}
                     </div>
                   </div>
                 </div>
 
-                {/* High-Level Overview Side */}
-                <div className="w-full lg:w-7/12 p-8 lg:p-12 flex flex-col justify-center relative z-10 bg-transparent">
+                {/* Content Side */}
+                <div className="w-full lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center relative z-10">
                   <div className="space-y-8">
                     <div>
-                      <h4 className="text-sm text-white/50 uppercase tracking-widest mb-3 font-mono">Product Goal</h4>
-                      <p className="text-white/80 text-lg leading-relaxed font-light">
+                      <div className="text-white/30 font-mono text-[10px] tracking-[0.3em] uppercase mb-4">Project {project.id} — {project.role}</div>
+                      <h3 className="text-4xl lg:text-5xl font-bold text-white tracking-tighter mb-6">{project.title}</h3>
+                      <p className="text-white/60 text-lg leading-relaxed font-light">
                         {project.description}
                       </p>
                     </div>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                       {project.metrics.map((metric, idx) => (
-                         <div key={idx} className="bg-white/[0.02] rounded-2xl p-5 border border-white/5">
-                           <div className="flex items-center gap-2 mb-3">
-                             {metric.icon}
-                             <span className="text-[10px] text-white/40 font-mono uppercase tracking-wider">{metric.label}</span>
-                           </div>
-                           <div className="text-xl font-bold text-white tracking-tight">{metric.value}</div>
-                         </div>
-                       ))}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span key={tech} className="px-4 py-2 rounded-xl text-xs font-medium bg-white/5 text-white/40 border border-white/5 backdrop-blur-md hover:text-white hover:border-white/20 transition-colors">
+                          {tech}
+                        </span>
+                      ))}
                     </div>
 
-                    <div className="pt-4">
+                    <div className="pt-6">
                       <button 
                         onClick={() => setExpandedId(expandedId === project.id ? null : project.id)}
-                        className="group/btn flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 text-white font-mono text-sm uppercase tracking-wider rounded-full hover:bg-white/10 transition-colors w-full justify-center"
+                        className="group/btn flex items-center gap-4 text-white font-mono text-xs uppercase tracking-[0.2em] hover:text-blue-400 transition-colors"
                       >
-                        {expandedId === project.id ? "Close Engineering Documentation" : "Read Engineering Documentation"}
+                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover/btn:border-blue-400 group-hover/btn:bg-blue-400/10 transition-all">
+                          {expandedId === project.id ? <Blocks className="w-4 h-4 rotate-45" /> : <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />}
+                        </div>
+                        {expandedId === project.id ? "Close Case Study" : "View Case Study"}
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Engineering Deep Dive Accordion */}
+              {/* Case Study Accordion */}
               <AnimatePresence>
                 {expandedId === project.id && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden bg-[#050508]/80 backdrop-blur-2xl"
+                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    className="overflow-hidden bg-[#050508]/60 backdrop-blur-xl border-t border-white/5 will-change-[height,opacity]"
                   >
-                    <div className="p-8 lg:p-12 border-t border-white/5">
-                      <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-                        {project.deepDive.map((item, idx) => (
-                          <div key={idx} className="break-inside-avoid glass-card p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors bg-white/[0.01]">
-                            <div className="flex items-center gap-2 mb-3 text-white/40 font-mono text-[10px] uppercase tracking-widest">
-                              <Blocks className="w-3.5 h-3.5 text-blue-400" /> {item.title}
-                            </div>
-                            <p className="text-white/70 text-sm leading-relaxed">{item.content}</p>
+                    <div className="p-10 lg:p-20 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                      {project.deepDive.map((item, idx) => (
+                        <div key={idx} className="space-y-4">
+                          <div className="flex items-center gap-3">
+                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+                            <h4 className="text-[10px] text-white/30 font-mono uppercase tracking-[0.3em]">{item.title}</h4>
                           </div>
-                        ))}
-                      </div>
+                          <p className="text-white/50 text-sm leading-relaxed font-light">{item.content}</p>
+                        </div>
+                      ))}
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-
             </motion.div>
           ))}
         </div>
