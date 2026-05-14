@@ -10,11 +10,14 @@ import TypingAnimation from "./TypingAnimation";
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden bg-[#030305]">
+    <section id="home" className="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden bg-[#020204]">
+      {/* Cinematic Spotlight: Focal Point Anchor */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-[-20%] -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none z-0 hidden lg:block" />
+      
       {/* Premium Atmospheric Background Identity: "MANU" Refinement */}
-      <div className="absolute top-[40%] left-0 w-full flex items-center justify-start pointer-events-none select-none z-0 overflow-hidden px-[5%] md:px-[10%]">
+      <div className="absolute top-[40%] left-0 w-full flex items-center justify-start pointer-events-none select-none z-0 overflow-hidden px-[5%] md:px-[10%] opacity-40">
         <motion.div
-          initial={{ opacity: 0, x: -50, filter: "blur(30px)" }}
+          initial={{ opacity: 0, x: -50, filter: "blur(20px)" }}
           animate={{ opacity: 0.1, x: 0, filter: "blur(8px)" }}
           transition={{ duration: 3, ease: [0.16, 1, 0.3, 1] }}
           className="relative"
@@ -179,55 +182,54 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40, filter: "blur(20px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative lg:h-[700px] flex items-center justify-center perspective-[1500px] mt-12 lg:mt-0"
+            initial={{ opacity: 0, scale: 0.9, rotateY: 10 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 1.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="relative perspective-2000 flex justify-center lg:justify-end"
           >
-            {/* Atmospheric Background Glow behind portrait */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-violet-600/10 via-blue-500/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
+            {/* Cinematic Portrait Halo */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-transparent rounded-full blur-[100px] opacity-60 animate-pulse pointer-events-none" />
 
-            {/* Core Portrait Wrapper */}
-            <motion.div
-              animate={{
-                rotateY: [0, 1.5, 0, -1.5, 0],
-                rotateX: [0, -1.5, 0, 1.5, 0],
-                y: [0, -8, 0]
-              }}
-              transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
-              className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[460px] aspect-[4/5] rounded-[2rem] p-[1px] z-10 group"
-              style={{ transformStyle: "preserve-3d" }}
+            {/* Portrait Main Container - Breathing Motion */}
+            <motion.div 
+              animate={{ y: [0, -15, 0] }}
+              transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
+              className="relative w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[480px] aspect-[4/5] group"
             >
-              {/* Subtle border glow wrapper */}
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-b from-white/10 via-white/5 to-transparent pointer-events-none" />
+              {/* Reflective Outer Border */}
+              <div className="absolute -inset-[2px] rounded-[2.2rem] bg-gradient-to-br from-white/20 via-white/5 to-blue-500/20 opacity-40 blur-[1px] pointer-events-none" />
+              
+              {/* Glassmorphism Container - Refined */}
+              <div className="relative w-full h-full rounded-[2rem] overflow-hidden bg-[#050508]/40 backdrop-blur-md shadow-[0_40px_80px_-20px_rgba(0,0,0,0.9),0_0_60px_rgba(59,130,246,0.15)] border border-white/10 ring-1 ring-white/5">
 
-              {/* Glassmorphism Container */}
-              <div className="relative w-full h-full rounded-[2rem] overflow-hidden bg-[#050508]/80 backdrop-blur-md shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),0_0_40px_rgba(139,92,246,0.1)] border border-white/5">
-
-                {/* Image Setup - Overflowing, Asymmetrical */}
-                <div className="absolute inset-x-0 bottom-0 h-[110%] w-[110%] -left-[5%] origin-bottom transition-transform duration-700 ease-out group-hover:scale-[1.02]">
+                {/* Portrait Image - Enhanced Focus */}
+                <div className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-out group-hover:scale-[1.03]">
                   <Image
-                    src="/avatar.png"
+                    src="/cinematic_engineer_portrait.png"
                     alt="Elite Developer Portrait"
                     fill
                     priority
-                    className="object-cover object-top opacity-90 group-hover:opacity-100 transition-opacity duration-700"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 460px"
+                    className="object-cover object-center opacity-95 brightness-[1.05] contrast-[1.05] group-hover:opacity-100 transition-all duration-1000"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
                 </div>
 
-                {/* Layered Shadow & Lighting over image */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020203] via-[#020203]/20 to-transparent opacity-90 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-transparent mix-blend-overlay pointer-events-none" />
+                {/* Internal Cinematic Lighting Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020203]/90 via-transparent to-transparent opacity-60 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-transparent to-transparent mix-blend-overlay pointer-events-none" />
+                
+                {/* Subtle Lens Flare / Edge Highlight */}
+                <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_0%,rgba(255,255,255,0.08),transparent_40%)] pointer-events-none" />
               </div>
 
+              {/* Atmospheric Environmental Spill */}
+              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[80%] h-20 bg-blue-600/20 blur-[50px] opacity-40 pointer-events-none" />
 
-              {/* Floating Element 1: Cloud Telemetry - Moved away from head */}
+              {/* Floating Element 1: Cloud Telemetry - Subordinated */}
               <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-                className="hidden md:block absolute -right-12 lg:-right-20 -top-8 glass-card p-4 rounded-3xl border border-blue-500/20 shadow-[0_20px_40px_rgba(59,130,246,0.1)] backdrop-blur-md z-20 w-48 lg:w-52 group/card hover:border-blue-500/40 transition-all will-change-transform"
-                style={{ transformStyle: "preserve-3d" }}
+                animate={{ y: [0, -8, 0] }}
+                transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
+                className="hidden md:block absolute -right-10 lg:-right-16 -top-10 glass-card p-4 rounded-3xl border border-white/10 bg-[#050508]/60 opacity-60 group-hover:opacity-100 transition-opacity z-20 w-44 lg:w-48 will-change-transform"
               >
                 <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/5">
                   <Activity className="w-4 h-4 text-blue-400" />
@@ -245,12 +247,11 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Floating Element 2: Tech Stack Card - Moved down to clear face */}
+              {/* Floating Element 2: Tech Stack Card - Subordinated */}
               <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 7, delay: 1.2, ease: "easeInOut" }}
-                className="absolute -left-8 lg:-left-16 bottom-[10%] lg:bottom-[15%] glass-card p-3 md:p-4 rounded-2xl md:rounded-3xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] backdrop-blur-md z-20 w-36 md:w-48 group/card hover:border-white/20 transition-colors will-change-transform"
-                style={{ transformStyle: "preserve-3d" }}
+                animate={{ y: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 9, delay: 1.2, ease: "easeInOut" }}
+                className="absolute -left-10 lg:-left-20 bottom-[10%] lg:bottom-[15%] glass-card p-3 md:p-4 rounded-2xl md:rounded-3xl border border-white/10 bg-[#050508]/60 opacity-60 group-hover:opacity-100 transition-opacity z-20 w-40 md:w-48 will-change-transform"
               >
                 <div className="flex items-center gap-2 mb-2 md:mb-3 pb-1 md:pb-2 border-b border-white/5">
                   <Terminal className="w-3 md:w-4 h-3 md:h-4 text-white/70" />
@@ -266,12 +267,11 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Floating Element 3: AI Inference Status - Moved lower */}
+              {/* Floating Element 3: AI Inference Status - Subordinated */}
               <motion.div
-                animate={{ y: [0, -15, 0] }}
-                transition={{ repeat: Infinity, duration: 9, delay: 0.5, ease: "easeInOut" }}
-                className="hidden md:block absolute -right-8 bottom-0 glass-card p-4 rounded-3xl border border-purple-500/20 shadow-[0_20px_40px_rgba(139,92,246,0.1)] backdrop-blur-md z-20 w-56 group/card hover:border-purple-500/40 transition-all will-change-transform"
-                style={{ transformStyle: "preserve-3d" }}
+                animate={{ y: [0, -12, 0] }}
+                transition={{ repeat: Infinity, duration: 11, delay: 0.5, ease: "easeInOut" }}
+                className="hidden md:block absolute -right-6 bottom-0 glass-card p-4 rounded-3xl border border-white/10 bg-[#050508]/60 opacity-60 group-hover:opacity-100 transition-opacity z-20 w-52 lg:w-56 will-change-transform"
               >
                 <div className="flex items-center gap-2 mb-2 pb-2 border-b border-white/5">
                   <Cpu className="w-4 h-4 text-purple-400" />
