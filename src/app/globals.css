@@ -44,40 +44,55 @@
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   }
   
   .glass-card {
-    background: rgba(10, 10, 14, 0.4);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    background: rgba(10, 10, 14, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     backface-visibility: hidden;
-    transform: translateZ(0);
+    transform: translate3d(0, 0, 0);
+    position: relative;
+  }
+
+  /* Premium Noise Texture for Glass */
+  .glass-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.03;
+    mix-blend-overlay: overlay;
+    pointer-events: none;
+    z-index: 0;
   }
 
   @media (max-width: 768px) {
     .glass-card {
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
   }
 
   .glass-card-hover {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
                 opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
   }
   
   .glass-card-hover:hover {
-    background: rgba(20, 20, 25, 0.6);
-    transform: translateY(-4px) translateZ(0);
+    background: rgba(20, 20, 25, 0.7);
+    transform: translateY(-6px) translate3d(0, 0, 0);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 20px rgba(59, 130, 246, 0.1);
   }
 
   .premium-shadow {
-    box-shadow: 0 30px 60px -10px rgba(0,0,0,0.8), 0 0 40px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
   }
   
   .premium-gradient {
