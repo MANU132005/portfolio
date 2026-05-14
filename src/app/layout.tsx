@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Premium Student Developer Portfolio",
+  title: "MANU RIKKUMALLA",
   description: "Building thoughtful digital experiences. A futuristic and premium engineering portfolio.",
 };
 
