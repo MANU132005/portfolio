@@ -205,21 +205,21 @@ export default function Hero() {
                 {/* Portrait Image - Enhanced Focus */}
                 <div className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-out group-hover:scale-[1.03]">
                   <Image
-                    src="/cinematic_engineer_portrait.png"
-                    alt="Elite Developer Portrait"
+                    src="/avatar.png"
+                    alt="Manu Rikkumalla"
                     fill
                     priority
-                    className="object-cover object-center opacity-95 brightness-[1.05] contrast-[1.05] group-hover:opacity-100 transition-all duration-1000"
+                    className="object-cover object-top opacity-95 group-hover:opacity-100 transition-all duration-1000"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
                 </div>
 
-                {/* Internal Cinematic Lighting Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020203]/90 via-transparent to-transparent opacity-60 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-transparent to-transparent mix-blend-overlay pointer-events-none" />
+                {/* Internal Cinematic Lighting Overlays - Enhancing your photo */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020203] via-transparent to-transparent opacity-80 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent mix-blend-overlay pointer-events-none" />
                 
-                {/* Subtle Lens Flare / Edge Highlight */}
-                <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_0%,rgba(255,255,255,0.08),transparent_40%)] pointer-events-none" />
+                {/* Focal Illumination - Soft center light */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.05),transparent_60%)] pointer-events-none" />
               </div>
 
               {/* Atmospheric Environmental Spill */}
