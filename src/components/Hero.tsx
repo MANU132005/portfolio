@@ -202,7 +202,7 @@ export default function Hero() {
               <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-b from-white/10 via-white/5 to-transparent pointer-events-none" />
 
               {/* Glassmorphism Container */}
-              <div className="relative w-full h-full rounded-[2rem] overflow-hidden bg-[#050508]/80 backdrop-blur-xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),0_0_40px_rgba(139,92,246,0.1)] border border-white/5">
+              <div className="relative w-full h-full rounded-[2rem] overflow-hidden bg-[#050508]/80 backdrop-blur-md shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),0_0_40px_rgba(139,92,246,0.1)] border border-white/5">
 
                 {/* Image Setup - Overflowing, Asymmetrical */}
                 <div className="absolute inset-x-0 bottom-0 h-[110%] w-[110%] -left-[5%] origin-bottom transition-transform duration-700 ease-out group-hover:scale-[1.02]">
@@ -224,9 +224,9 @@ export default function Hero() {
 
               {/* Floating Element 1: Cloud Telemetry - Moved away from head */}
               <motion.div
-                animate={{ y: [0, -10, 0], translateZ: [0, 40, 0] }}
+                animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-                className="hidden md:block absolute -right-12 lg:-right-20 -top-8 glass-card p-4 rounded-3xl border border-blue-500/20 shadow-[0_20px_40px_rgba(59,130,246,0.1)] backdrop-blur-lg z-20 w-48 lg:w-52 group/card hover:border-blue-500/40 transition-all will-change-transform"
+                className="hidden md:block absolute -right-12 lg:-right-20 -top-8 glass-card p-4 rounded-3xl border border-blue-500/20 shadow-[0_20px_40px_rgba(59,130,246,0.1)] backdrop-blur-md z-20 w-48 lg:w-52 group/card hover:border-blue-500/40 transition-all will-change-transform"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/5">
@@ -247,9 +247,9 @@ export default function Hero() {
 
               {/* Floating Element 2: Tech Stack Card - Moved down to clear face */}
               <motion.div
-                animate={{ y: [0, 10, 0], translateZ: [0, 20, 0] }}
+                animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 7, delay: 1.2, ease: "easeInOut" }}
-                className="absolute -left-8 lg:-left-16 bottom-[10%] lg:bottom-[15%] glass-card p-3 md:p-4 rounded-2xl md:rounded-3xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] backdrop-blur-lg z-20 w-36 md:w-48 group/card hover:border-white/20 transition-colors will-change-transform"
+                className="absolute -left-8 lg:-left-16 bottom-[10%] lg:bottom-[15%] glass-card p-3 md:p-4 rounded-2xl md:rounded-3xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] backdrop-blur-md z-20 w-36 md:w-48 group/card hover:border-white/20 transition-colors will-change-transform"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="flex items-center gap-2 mb-2 md:mb-3 pb-1 md:pb-2 border-b border-white/5">
@@ -268,9 +268,9 @@ export default function Hero() {
 
               {/* Floating Element 3: AI Inference Status - Moved lower */}
               <motion.div
-                animate={{ y: [0, -15, 0], translateZ: [0, 60, 0] }}
+                animate={{ y: [0, -15, 0] }}
                 transition={{ repeat: Infinity, duration: 9, delay: 0.5, ease: "easeInOut" }}
-                className="hidden md:block absolute -right-8 bottom-0 glass-card p-4 rounded-3xl border border-purple-500/20 shadow-[0_20px_40px_rgba(139,92,246,0.1)] backdrop-blur-lg z-20 w-56 group/card hover:border-purple-500/40 transition-all will-change-transform"
+                className="hidden md:block absolute -right-8 bottom-0 glass-card p-4 rounded-3xl border border-purple-500/20 shadow-[0_20px_40px_rgba(139,92,246,0.1)] backdrop-blur-md z-20 w-56 group/card hover:border-purple-500/40 transition-all will-change-transform"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="flex items-center gap-2 mb-2 pb-2 border-b border-white/5">

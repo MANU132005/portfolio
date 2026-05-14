@@ -55,7 +55,7 @@ export default function Navbar() {
           maxWidth: scrolled ? "1000px" : "1200px",
           padding: scrolled ? "8px 16px" : "12px 24px",
           backgroundColor: scrolled || mobileMenuOpen ? "rgba(3, 3, 5, 0.85)" : "transparent",
-          backdropFilter: scrolled || mobileMenuOpen ? "blur(12px)" : "blur(0px)",
+          backdropFilter: scrolled || mobileMenuOpen ? "blur(8px)" : "blur(0px)",
           border: scrolled || mobileMenuOpen ? "1px solid rgba(255,255,255,0.1)" : "1px solid transparent",
           boxShadow: scrolled || mobileMenuOpen ? "0 25px 50px -12px rgba(0,0,0,0.5)" : "none",
           borderRadius: mobileMenuOpen ? "24px" : "9999px"

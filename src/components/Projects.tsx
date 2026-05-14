@@ -181,7 +181,7 @@ export default function Projects() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden bg-[#050508]/60 backdrop-blur-xl border-t border-white/5 will-change-[height,opacity]"
+                    className="overflow-hidden bg-[#050508]/60 backdrop-blur-md border-t border-white/5 will-change-[height,opacity]"
                   >
                     <div className="p-10 lg:p-20 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                       {project.deepDive.map((item, idx) => (

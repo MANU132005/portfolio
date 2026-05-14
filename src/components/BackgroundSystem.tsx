@@ -29,37 +29,29 @@ export default function BackgroundSystem() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden bg-[#030305]">
-      {/* Mesh Gradient Layers */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-blue-600/20 rounded-full blur-[100px] animate-pulse pointer-events-none" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-600/20 rounded-full blur-[120px] animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
+      {/* Static Mesh Gradient - NO PULSE (expensive) */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-[-10%] left-[-10%] w-[70%] h-[70%] bg-blue-600/10 rounded-full blur-[80px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-600/10 rounded-full blur-[100px]" />
       </div>
 
-      {/* Dynamic Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-white/[0.015] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+      {/* Static Grid Pattern - No mask (expensive) */}
+      <div className="absolute inset-0 bg-grid-white/[0.01] bg-[size:60px_60px]" />
       
       {!isMobile && (
         <>
-          {/* Cinematic Ambient Glows - CSS Variable Driven */}
+          {/* Subtle Ambient Glows */}
           <div 
-            className="absolute top-[-20%] left-[-10%] w-[65vw] h-[65vw] rounded-full bg-blue-500/10 blur-[120px] mix-blend-screen opacity-80 transition-transform duration-700 ease-out"
+            className="absolute top-[-20%] left-[-10%] w-[65vw] h-[65vw] rounded-full bg-blue-500/5 blur-[100px] transition-transform duration-1000 ease-out"
             style={{ 
-              transform: `translate(calc(var(--mouse-x) * 0.04), calc(var(--mouse-y) * 0.04))`
+              transform: `translate(calc(var(--mouse-x) * 0.02), calc(var(--mouse-y) * 0.02))`
             }}
           />
           
           <div 
-            className="absolute bottom-[-15%] right-[-10%] w-[55vw] h-[55vw] rounded-full bg-indigo-600/15 blur-[140px] mix-blend-screen opacity-70 transition-transform duration-1000 ease-out"
+            className="absolute bottom-[-15%] right-[-10%] w-[55vw] h-[55vw] rounded-full bg-indigo-600/5 blur-[100px] transition-transform duration-1500 ease-out"
             style={{ 
-              transform: `translate(calc(var(--mouse-x) * -0.03), calc(var(--mouse-y) * -0.03))`
-            }}
-          />
-
-          {/* Atmospheric Cursor Follower */}
-          <div 
-            className="absolute inset-0 opacity-40 transition-opacity duration-500"
-            style={{ 
-              background: `radial-gradient(circle 800px at var(--mouse-x) var(--mouse-y), rgba(59,130,246,0.06), transparent 80%)`
+              transform: `translate(calc(var(--mouse-x) * -0.01), calc(var(--mouse-y) * -0.01))`
             }}
           />
         </>
