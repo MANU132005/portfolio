@@ -77,7 +77,7 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col gap-4 md:gap-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter text-white leading-[1.1] md:leading-[1.05] mb-2">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-[-0.04em] text-white leading-[1.1] md:leading-[1.05] mb-2">
                 <AnimatedText text="Building" delay={0.2} />
                 <br className="hidden sm:block" />
                 <AnimatedText 
@@ -196,11 +196,17 @@ export default function Hero() {
               transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
               className="relative w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[480px] aspect-[4/5] group"
             >
-              {/* Reflective Outer Border */}
-              <div className="absolute -inset-[2px] rounded-[2.2rem] bg-gradient-to-br from-white/20 via-white/5 to-blue-500/20 opacity-40 blur-[1px] pointer-events-none" />
-              
-              {/* Glassmorphism Container - Refined */}
-              <div className="relative w-full h-full rounded-[2rem] overflow-hidden bg-[#050508]/40 backdrop-blur-md shadow-[0_40px_80px_-20px_rgba(0,0,0,0.9),0_0_60px_rgba(59,130,246,0.15)] border border-white/10 ring-1 ring-white/5">
+                {/* Reflective Outer Border with Sheen */}
+                <div className="absolute -inset-[2px] rounded-[2.2rem] bg-gradient-to-br from-white/30 via-white/5 to-blue-500/30 opacity-40 blur-[1px] pointer-events-none overflow-hidden">
+                  <motion.div 
+                    animate={{ x: ["-100%", "200%"] }}
+                    transition={{ repeat: Infinity, duration: 3, delay: 2, ease: "easeInOut" }}
+                    className="absolute inset-y-0 w-20 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg]"
+                  />
+                </div>
+                
+                {/* Glassmorphism Container - Refined */}
+                <div className="relative w-full h-full rounded-[2rem] overflow-hidden bg-[#050508]/40 backdrop-blur-md shadow-[0_40px_80px_-20px_rgba(0,0,0,0.9),0_0_60px_rgba(59,130,246,0.15)] border border-white/10 ring-1 ring-white/5">
 
                 {/* Portrait Image - Enhanced Focus */}
                 <div className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-out group-hover:scale-[1.03]">
@@ -220,6 +226,9 @@ export default function Hero() {
                 
                 {/* Focal Illumination - Soft center light */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.05),transparent_60%)] pointer-events-none" />
+
+                {/* Cinematic Lens Flare */}
+                <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-400/20 rounded-full blur-[60px] opacity-40 pointer-events-none mix-blend-screen" />
               </div>
 
               {/* Atmospheric Environmental Spill */}
