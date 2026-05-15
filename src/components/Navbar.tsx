@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
+  { name: "Feedback", href: "/feedback" },
   { name: "About", href: "#about" },
 ];
 
@@ -83,16 +84,29 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setActive(link.name)}
-                className="relative px-4 py-2 text-[10px] font-mono tracking-widest uppercase text-white/40 hover:text-white transition-colors rounded-full"
+                className={cn(
+                  "relative px-4 py-2 text-[10px] font-mono tracking-widest uppercase transition-colors rounded-full flex items-center gap-2",
+                  link.name === "Feedback" 
+                    ? "text-blue-400 bg-blue-500/5 border border-blue-500/20 animate-feedback-pulse" 
+                    : "text-white/40 hover:text-white"
+                )}
               >
-                {active === link.name && (
+                {active === link.name && link.name !== "Feedback" && (
                   <motion.div
                     layoutId="nav-pill"
                     className="absolute inset-0 bg-white/5 rounded-full border border-white/10"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
-                <span className="relative z-10">{link.name}</span>
+                <span className="relative z-10 flex items-center gap-1.5">
+                  {link.name}
+                  {link.name === "Feedback" && (
+                    <span className="flex items-center gap-1 text-[8px] font-bold text-blue-400/80">
+                      <span className="w-1 h-1 rounded-full bg-blue-400 animate-pulse" />
+                      LIVE
+                    </span>
+                  )}
+                </span>
               </Link>
             ))}
           </div>

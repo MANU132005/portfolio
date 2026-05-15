@@ -167,8 +167,29 @@ export default function Hero() {
                 </motion.button>
               </a>
             </div>
+            
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2.5 }}
+              className="mt-6 flex items-center gap-4 px-4 py-3 rounded-2xl bg-blue-500/5 border border-blue-500/10 w-fit"
+            >
+              <div className="flex -space-x-2">
+                {[1, 2, 3].map(i => (
+                  <div key={i} className="w-6 h-6 rounded-full border-2 border-[#020204] bg-zinc-800 text-[8px] flex items-center justify-center font-bold text-zinc-500">
+                    {String.fromCharCode(64 + i)}
+                  </div>
+                ))}
+              </div>
+              <div className="text-xs text-zinc-500 font-medium">
+                <span className="text-blue-400">24+ Professionals</span> shared feedback. 
+                <Link href="/feedback" className="ml-2 text-white hover:text-blue-400 underline underline-offset-4 decoration-blue-500/30 transition-colors">
+                  Share yours →
+                </Link>
+              </div>
+            </motion.div>
 
-            <div className="flex items-center gap-6 text-white/40">
+            <div className="flex items-center gap-6 text-white/40 mt-8">
               <a href="https://github.com/MANU132005" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors hover:scale-110">
                 <Github className="w-5 h-5" />
               </a>

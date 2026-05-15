@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingFeedback from "@/components/FloatingFeedback";
 import BackgroundSystem from "@/components/BackgroundSystem";
 import { CommandPalette } from "@/components/CommandPalette";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
         <SmoothScroll>
           <div className="relative min-h-screen">
             <Navbar />
+            <FloatingFeedback />
             <main>{children}</main>
             <Footer />
           </div>

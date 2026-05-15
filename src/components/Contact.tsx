@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Copy, Check, ArrowRight, Briefcase } from "lucide-react";
+import { Mail, Phone, Copy, Check, ArrowRight, Briefcase, MessageSquare } from "lucide-react";
+import Link from "next/link";
 import { Github, Linkedin } from "./BrandIcons";
 
 export default function Contact() {
